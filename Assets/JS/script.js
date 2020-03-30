@@ -1,5 +1,8 @@
 // Referenced Fridge Exercise from Week Five
 
+let interval;
+let timeLeft = 10;
+
     //  Dynamically Create Questions
     // ========================================================================
 
@@ -23,8 +26,7 @@
     for (let i = 0; i < testQuestions.length; i++) {
 
         // Creating a header 3 HTML element for each test question
-        let question;
-        question.createElement("header"); // ERROR, creatElement not defined?
+        let question = document.createElement("header"); // ERROR, creatElement not defined?
 
         // Adding class of card header to each question
         question.className = "card-header";
@@ -33,15 +35,14 @@
         question.setAttribute("data-question", testQuestions[i]);
 
         // Setting the element text to the idex as it loops through the testQuestions array
-        question.innerHTML(testQuestions[i]);
+        question.innerHTML = testQuestions[i];
 
         // Appending each question to the the test-question ID div
         document.getElementById("test-question").append(question);
 
     }
 
-    // Testing with Console.log
-    console.log(question);
+    
 
     // Setting an Event Listener for the Next Question Button
     // document.getElementById("next-question-button").addEventListener("click", function() {
@@ -56,4 +57,32 @@
 
     // });
 
-    // Dynamically Create Answer Buttons
+    // Dynamically Create Answer Button Text
+
+    // Initializing the Timer
+
+    function initTimer() {
+        
+        //Call Function for timer Interval
+        interval = setInterval(function() {
+
+            //Update Time Left
+            timeLeft--;
+
+            //Update Element
+            document.getElementById("timer").innerHTML = timeLeft;
+
+            //Check If Time Is Up
+            if (timeLeft === 0) {
+
+                clearInterval(interval);
+
+            }
+
+        }, 1000
+        
+        );
+        
+    }
+
+    initTimer();
