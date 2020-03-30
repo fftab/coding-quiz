@@ -2,6 +2,7 @@
 
 let interval;
 let timeLeft = 10;
+let currentQuestion = 0;
 
     //  Dynamically Create Questions
     // ========================================================================
@@ -22,25 +23,7 @@ let timeLeft = 10;
 
     ];
 
-    // Creating a for-loop to iterate through the testQuestions
-    for (let i = 0; i < testQuestions.length; i++) {
-
-        // Creating a header 3 HTML element for each test question
-        let question = document.createElement("header"); // ERROR, creatElement not defined?
-
-        // Adding class of card header to each question
-        question.className = "card-header";
-
-        // Setting data attribute
-        question.setAttribute("data-question", testQuestions[i]);
-
-        // Setting the element text to the idex as it loops through the testQuestions array
-        question.innerHTML = testQuestions[i];
-
-        // Appending each question to the the test-question ID div
-        document.getElementById("test-question").append(question);
-
-    }
+    
 
     
 
@@ -77,6 +60,7 @@ let timeLeft = 10;
 
                 clearInterval(interval);
 
+
             }
 
         }, 1000
@@ -86,3 +70,37 @@ let timeLeft = 10;
     }
 
     initTimer();
+
+    populateQuestion();
+
+    function populateQuestion() {
+
+        let questionHeader = document.createElement("h3");
+
+        questionHeader.textContent = testQuestions[currentQuestion];
+
+        document.getElementById("test-question").appendChild(questionHeader);
+
+
+
+    }
+
+    // // Creating a for-loop to iterate through the testQuestions
+    // for (let i = 0; i < testQuestions.length; i++) {
+
+    //     // Creating a header 3 HTML element for each test question
+    //     let question = document.createElement("header"); // ERROR, creatElement not defined?
+
+    //     // Adding class of card header to each question
+    //     question.className = "card-header";
+
+    //     // Setting data attribute
+    //     question.setAttribute("data-question", testQuestions[i]);
+
+    //     // Setting the element text to the idex as it loops through the testQuestions array
+    //     question.innerHTML = testQuestions[i];
+
+    //     // Appending each question to the the test-question ID div
+    //     document.getElementById("test-question").append(question);
+
+    // }
