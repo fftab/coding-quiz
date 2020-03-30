@@ -1,0 +1,63 @@
+/* Beginning of CSS */
+
+/* All Selector, Then All Selector with Pseudo Elements Before and After */
+*, *::before, *::after {
+
+    /* Border Box Allows for Inclusion of Padding and Borders in the Width and Height which allows for more uniform spacing of elements */
+    box-sizing: border-box;
+
+    /* Setting Font Family for Entire Body to Open Sans Using Font from Google Fonts */
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+/* Adding Styling to Body */
+body {
+
+    /* 0 Padding and Margins */
+    padding: 0;
+    margin: 0;
+
+    /* Setting Display to Flex */
+    display: flex;
+
+    /* Setting View Width and Height to 100% */
+    width: 100vw;
+    height: 100vh;
+
+    /* Displays Content in Center */
+    justify-content: center;
+
+    /* Displays Content in Center */
+    align-items: center;
+
+    /* Setting Background Color */
+    background-color: darkorange;
+    
+}
+
+/* Styling Card */
+.card {
+
+    /* Setting Margin */
+    margin: auto;
+
+    /* Setting Width to 700px (Ample Width to take up mosst of screen) */
+    width: 700px;
+
+    /* Setting the Max Width to 80% Prevents Overflow */
+    max-width: 80%;
+   
+    /* Setting Container Background Color to White */
+    background-color: white;
+
+    /* Setting a Border Radius (Makes the Border Round) (Redundant?) */
+    border-radius: 5px;
+
+    /* Setting Padding for Container */
+    padding: 10px;
+
+    /* Adding Shadow Using Box Shadow, Making the Shadow Even on Both Sides and on Top and Bottom, Setting a Fade, Setting Length of Shadow */
+    box-shadow: 0 0 10px 3px;
+
+}
