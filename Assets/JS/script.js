@@ -1,8 +1,15 @@
+// JavaScript for Quiz
 // Referenced Fridge Exercise from Week Five
+// Received Help from Ikemous for this assignment
 
-let interval;
-let timeLeft = 10;
-let currentQuestion = 0;
+    // Declaring Interval
+    let interval;
+
+    // Starting Timer at 180 Seconds or 3 Minutes 
+    let timeLeft = 180;
+
+    // Variable that will act as index of Question Number
+    let currentQuestion = 0;
 
     //  Dynamically Create Questions
     // ========================================================================
@@ -11,7 +18,7 @@ let currentQuestion = 0;
     let testQuestions = [
 
         "Q1: | How do you declare a function in JavaScript?", 
-        "Q2: | How do you link an external JavaScript file called script.js?", 
+        "Q2: | How do you link an external JavaScript file called script.js in an HTML document?", 
         "Q3: | How do you call a function in JavaScript?",
         "Q4: | How do you create a for-loop in JavaScript?",
         "Q5: | How do you write an if statement in JavaScript?",
@@ -23,34 +30,208 @@ let currentQuestion = 0;
 
     ];
 
-
-
+    //Declaring the testanswers Object
     let testAnswers = [
 
         Q1 = {
 
+            // Question 1
+            // "Q1: | How do you declare a function in JavaScript?"
             Q: testQuestions[0],
 
+            //Question 1 Answer Options
             testOptions: [
 
-                "A", "B", "C", "D"
+                "A  function functionName() { }", 
+                "B  functionName();", 
+                "C  function(functionName) { }", 
+                "D  {(function)}"
 
             ],
 
-            A: "A"
+            // Question 1 Answer
+            A: "A  function functionName() { }"
 
         },
 
         Q2 = {
 
+            // Question 2
+            // "Q2: | How do you link an external JavaScript file called script.js in an HTML document?"
             Q: testQuestions[1],
 
+            // Question 2 Answer Options
             testOptions: [
 
-                "A", "B", "C", "D"
+                "A  In the Body: <a href='script.js'></a>", 
+                "B  In the Head: <script defer src='script.js' type='text/javascript'></script>", 
+                "C  In the Body: <script src='script.js' type='text/javascript'", 
+                "D  Both B and C"
             ],
 
-            A: "B"
+            // Question 2 Answer
+            A: "D Both B and C"
+
+        },
+
+        Q3 = {
+
+            // Question 3
+            //  "Q3: | How do you call a function in JavaScript?"
+            Q: testQuestions[2],
+
+            // Question 3 Answer Options
+            testOptions: [
+
+                "A  function functionName();",
+                "B  functionName();",
+                "C  function() { }",
+                "D  function (functionName { })"
+            ],
+
+            // Question 3 Answer
+            A: "B  functionName();"
+
+        },
+
+        Q4 = {
+
+            // Question 4
+            // "Q4: | How do you create a for-loop in JavaScript?"
+            Q: testQuestions[3],
+
+            // Question 4 Answer Options
+            testOptions: [
+
+                "A  for (i = 0);",
+                "B  for () { i = 0; i < something.length; i++ }",
+                "C  for (i = 0; i < var",
+                "D  "
+            ],
+
+            // Question 4 Answer
+            A: ""
+            
+        },
+
+        Q5 = {
+
+            // Question 5
+            //  "Q5: | How do you write an if statement in JavaScript?"
+            Q: testQuestions[4],
+
+            // Question 5 Answer Options
+            testOptions: [
+
+                "A  ",
+                "B  ",
+                "C  ",
+                "D  "
+            ],
+
+            // Question 5 Answer
+            A: ""
+            
+        },
+
+        Q6 = {
+
+            // Question 6
+            // "Q6: | How do you write a comment in JavaScript?"
+            Q: testQuestions[5],
+
+            // Question 6 Answer Options
+            testOptions: [
+
+                "A  ",
+                "B  ",
+                "C  ",
+                "D  "
+            ],
+
+            // Question 6 Answer
+            A: ""
+            
+        },
+
+        Q7 = {
+
+            // Question 7
+            // "Q7: | How do you make an array in JavaScript?"
+            Q: testQuestions[6],
+
+            // Question 7 Answer Options
+            testOptions: [
+
+                "A  ",
+                "B  ",
+                "C  ",
+                "D  "
+            ],
+
+            // Question 7 Answer
+            A: ""
+            
+        },
+
+        Q8 = {
+
+            // Question 8
+            // "Q8: | What kind of letter case is used in JavaScript syntax?"
+            Q: testQuestions[7],
+
+            // Question 8 Answer Options
+            testOptions: [
+
+                "A  UPPERCASE",
+                "B  camelCase",
+                "C  lowercase",
+                "D  "
+            ],
+
+            // Question 8 Answer
+            A: ""
+            
+        },
+
+        Q9 = {
+
+            // Question 9
+            // "Q9: | How do you round the decimal number 8.24 in JavaScript?"
+            Q: testQuestions[8],
+
+            // Question 9 Answer Options
+            testOptions: [
+
+                "A  Math.round(8.24)",
+                "B  Math.ceil(8.24)",
+                "C  Math.floor(8.24)",
+                "D  A, B and C"
+            ],
+
+            // Question 9 Answer
+            A: "D  A, B and C"
+            
+        },
+
+        Q10 = {
+
+            // Question 10
+            // "Q10: | How do you indicate inequality in JavaScript?"
+            Q: testQuestions[9],
+
+            // Question 10 Answer Options
+            testOptions: [
+
+                "A  ===",
+                "B  =/=",
+                "C  !==",
+                "D  <="
+            ],
+
+            // Question 10 Answer
+            A: "C  !=="
+            
         }
 
     ]
