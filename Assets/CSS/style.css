@@ -64,6 +64,11 @@ body {
 
 .answer-buttons {
 
+    height: 50px;
+
+    width: 100px;
+
+    display: block;
 
 }
 

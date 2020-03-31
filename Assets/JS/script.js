@@ -23,7 +23,37 @@ let currentQuestion = 0;
 
     ];
 
-    
+
+
+    let testAnswers = [
+
+        Q1 = {
+
+            Q: testQuestions[0],
+
+            testOptions: [
+
+                "A", "B", "C", "D"
+
+            ],
+
+            A: "A"
+
+        },
+
+        Q2 = {
+
+            Q: testQuestions[1],
+
+            testOptions: [
+
+                "A", "B", "C", "D"
+            ],
+
+            A: "B"
+        }
+
+    ]
 
     
 
@@ -60,6 +90,8 @@ let currentQuestion = 0;
 
                 clearInterval(interval);
 
+                //Function to Load Score Input
+
 
             }
 
@@ -69,11 +101,51 @@ let currentQuestion = 0;
         
     }
 
+    // fucntion to initilalize program
+        //DO LAST//
+        // Check Local Storage
+            //your scorelist = localStorage(USE JSON.parse)
+            //If null 
+                //Score array is []
+
+        // Create Your main header
+            //Header Text
+            //Append To test questions
+
+        // Create Start button
+            //Give Class
+            //Give Text
+            //Append test answers
+
+    //Event listener For your START button
+        //Call populate question
+        //Call populate Buttons
+        //Call Init Timer
+
+    //Function to Load Score Input
+        //Clear Interval
+
+        // Input element
+            //assign a class
+            //append to DIV
+        // Submit button
+            //Assign class
+            //Assign Text
+            //Append to Div
+    
+    //Function to ScoreBoard 
+        
+
+    //Event listener for SUBMIT button
+
+
     initTimer();
 
     populateQuestion();
 
     function populateQuestion() {
+
+        document.getElementById("test-question").innerHTML = "";
 
         let questionHeader = document.createElement("h3");
 
@@ -81,10 +153,65 @@ let currentQuestion = 0;
 
         document.getElementById("test-question").appendChild(questionHeader);
 
+    }
 
+    function populateButtons() {
+
+        document.getElementById("test-answers").innerHTML = "";
+
+        for (i = 0;i < 4; i++) {
+
+            // create button elem
+            let newButton = document.createElement("button");
+
+            // assign class to elem
+            newButton.setAttribute("class", "answer-buttons");
+
+            // append elem to corresponding div
+            document.getElementById("test-answers").appendChild(newButton);
+
+            // text
+            newButton.textContent = testAnswers[currentQuestion].testOptions[i];
+
+        }
 
     }
 
+    populateButtons();
+
+    let clickOptions = document.getElementById("test-answers");
+    
+    clickOptions.addEventListener("click", function(event) {
+
+        //if click
+        if (event.target.matches("button")) {
+
+            // Test
+            // console.log(1);
+
+            // if answer is not correct
+            if (!testAnswers[currentQuestion].A == event.target.textContent) {
+
+                // Detract Time from the Timer
+
+                timeLeft--;
+
+            }
+            //else if questions > length of questions
+                //clear interval
+                //load score input function
+
+            // increase question increment
+            currentQuestion++;
+
+            // populate next question
+            populateQuestion();
+            populateButtons();
+
+
+        }
+
+    });
     // // Creating a for-loop to iterate through the testQuestions
     // for (let i = 0; i < testQuestions.length; i++) {
 
