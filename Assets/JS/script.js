@@ -103,14 +103,14 @@
             // Question 4 Answer Options
             testOptions: [
 
-                "A  for (i = 0);",
+                "A  for (i = 0; i > breakCase.length; i--) { }",
                 "B  for () { i = 0; i < something.length; i++ }",
-                "C  for (i = 0; i < var",
-                "D  "
+                "C  for (i = 0; i < breakCase.length; i++) { }",
+                "D  A and C"
             ],
 
             // Question 4 Answer
-            A: ""
+            A: "D  A and C"
             
         },
 
@@ -123,14 +123,14 @@
             // Question 5 Answer Options
             testOptions: [
 
-                "A  ",
-                "B  ",
-                "C  ",
-                "D  "
+                "A  if [ ] ( )",
+                "B  if ( ) { }",
+                "C  while ( ) { }",
+                "D  while [ ] ( )"
             ],
 
             // Question 5 Answer
-            A: ""
+            A: "B  if ( ) { }"
             
         },
 
@@ -143,14 +143,14 @@
             // Question 6 Answer Options
             testOptions: [
 
-                "A  ",
-                "B  ",
-                "C  ",
-                "D  "
+                "A  <!-- -->",
+                "B  // ",
+                "C  /* */",
+                "D  Both B and C"
             ],
 
             // Question 6 Answer
-            A: ""
+            A: "D  Both B and C"
             
         },
 
@@ -163,14 +163,14 @@
             // Question 7 Answer Options
             testOptions: [
 
-                "A  ",
-                "B  ",
-                "C  ",
-                "D  "
+                "A  let arrayName = [ item1, item2, item3 ];",
+                "B  let arrayName { item: 1, 2, 3 }",
+                "C  array (arrayName) { }",
+                "D  All of these are wrong."
             ],
 
             // Question 7 Answer
-            A: ""
+            A: "A  let arrayName = [ item1, item2, item3 ];"
             
         },
 
@@ -186,11 +186,11 @@
                 "A  UPPERCASE",
                 "B  camelCase",
                 "C  lowercase",
-                "D  "
+                "D  PascalCase"
             ],
 
             // Question 8 Answer
-            A: ""
+            A: "B  camelCase"
             
         },
 
