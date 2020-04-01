@@ -11,6 +11,9 @@
     // Variable that will act as index of Question Number
     let currentQuestion = 0;
 
+    // Start Button
+    let startButton = document.getElementById("start-test-button");
+
     //  Dynamically Create Questions
     // ========================================================================
 
@@ -236,23 +239,6 @@
 
     ]
 
-    
-
-    // Setting an Event Listener for the Next Question Button
-    // document.getElementById("next-question-button").addEventListener("click", function() {
-
-    //     // Declaring Locally
-    //     let activeQuestion;
-    //     // Creating a Div
-    //     activeQuestion.createElement("DIV");
-
-    //     activeQuestion.className("test-question");
-
-
-    // });
-
-    // Dynamically Create Answer Button Text
-
     // Initializing the Timer
 
     function initTimer() {
@@ -283,6 +269,8 @@
     }
 
     // fucntion to initilalize program
+    
+
         //DO LAST//
         // Check Local Storage
             //your scorelist = localStorage(USE JSON.parse)
@@ -298,7 +286,9 @@
             //Give Text
             //Append test answers
 
+
     //Event listener For your START button
+
         //Call populate question
         //Call populate Buttons
         //Call Init Timer
@@ -318,14 +308,35 @@
         
 
     //Event listener for SUBMIT button
+    let submitEvent = document.getElementById("submit");
 
+    function initQuiz() {
 
-    initTimer();
+        // Hide Start Screen
+        let startScreen = document.getElementById("test-control-container");
 
-    populateQuestion();
+        // Setting Attribute to Start Screen
+        startScreen.setAttribute("class", "hide");
+
+        // Remove Attribute of Hide for Test Question
+        let testQuestion = document.getElementById("test-question");
+
+        testQuestion.removeAttribute("class");
+
+        // Execute the Timer, Populate Q
+        initTimer();
+        populateQuestion();
+        
+        // Add an Event Listener for Start Quiz Button
+        
+
+    }
+
+    startButton.onclick = initQuiz;
 
     function populateQuestion() {
 
+        //Clear the Question Question
         document.getElementById("test-question").innerHTML = "";
 
         let questionHeader = document.createElement("h3");
@@ -335,6 +346,8 @@
         document.getElementById("test-question").appendChild(questionHeader);
 
     }
+
+    
 
     function populateButtons() {
 
@@ -358,7 +371,7 @@
 
     }
 
-    populateButtons();
+    
 
     let clickOptions = document.getElementById("test-answers");
     
@@ -393,6 +406,9 @@
         }
 
     });
+
+    // IGNORE
+
     // // Creating a for-loop to iterate through the testQuestions
     // for (let i = 0; i < testQuestions.length; i++) {
 
@@ -412,3 +428,18 @@
     //     document.getElementById("test-question").append(question);
 
     // }
+
+    // Setting an Event Listener for the Next Question Button
+    // document.getElementById("next-question-button").addEventListener("click", function() {
+
+    //     // Declaring Locally
+    //     let activeQuestion;
+    //     // Creating a Div
+    //     activeQuestion.createElement("DIV");
+
+    //     activeQuestion.className("test-question");
+
+
+    // });
+
+    // Dynamically Create Answer Button Text
