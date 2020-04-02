@@ -247,7 +247,10 @@
             
         }
 
-    ]
+    ];
+
+    // Functions
+    // ==================================================
 
     // Declaring function to Initialize the Timer
     function initTimer() {
@@ -272,7 +275,7 @@
                     clickOptions.setAttribute("class", "hide");
                     timer.setAttribute("class", "hide");
 
-                    //Function to Load Score Input
+                    // Function to Load Score Input
 
 
                 }
@@ -281,11 +284,11 @@
         
     }
 
-    // declaring the populateQuestion function   
+    // Declaring the Populate Question Function   
     function populateQuestion() {
 
-        //Clear the Question Question
-        document.getElementById("test-question").innerHTML = "";
+        // Clear the Question Text Before Adding New Text
+        testQuestion.innerHTML = "";
 
         // create a header element for question text
         let questionHeader = document.createElement("h3");
@@ -293,8 +296,8 @@
         // change question text according to testQuestions at index of currentQuestion
         questionHeader.textContent = testQuestions[currentQuestion];
 
-        // append new question header to test question div dom element
-        document.getElementById("test-question").appendChild(questionHeader);
+        // append new question header to test question div
+        testQuestion.appendChild(questionHeader);
 
     }
 
@@ -303,7 +306,7 @@
     function populateButtons() {
 
         // Clear answer text before adding new text
-        document.getElementById("test-answers").innerHTML = "";
+        clickOptions.innerHTML = "";
 
         // for loop to create four answer buttons
         for (i = 0;i < 4; i++) {
@@ -317,7 +320,7 @@
             // append elem to corresponding div
             clickOptions.appendChild(newButton);
 
-            // text
+            // Add text according to current question's answer options
             newButton.textContent = testAnswers[currentQuestion].testOptions[i];
 
         }
@@ -415,7 +418,7 @@
     // Adding Event Listener for Start Button to Perform Init Quiz
     startButton.onclick = initQuiz;
 
-
+    // ===============================================================
     // IGNORE - REFERENCE - IGNORE
     // ===============================================================
 
