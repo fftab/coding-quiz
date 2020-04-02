@@ -2,6 +2,9 @@
 // Referenced Fridge Exercise from Week Five
 // Received Help from Ikemous and Tutor for this assignment
 
+    // Global Variables
+    // =====================================================
+
     // Declaring Interval
     let interval;
 
@@ -14,7 +17,16 @@
     // Start Button
     let startButton = document.getElementById("start-test-button");
 
-    // Creating Initial Array of Test Questions
+    // Test Question Div
+    let testQuestion = document.getElementById("test-question");
+
+    // Test Answer Div
+    let clickOptions = document.getElementById("test-answers");
+
+    // Timer Div
+    let timer = document.getElementById("timer");
+
+    // Creating Array of Test Questions
     let testQuestions = [
 
         "Q1: | How do you declare a function in JavaScript?", 
@@ -240,19 +252,25 @@
     // Declaring function to Initialize the Timer
     function initTimer() {
         
-        //Call Function for timer Interval
+        // Function for timer interval
         interval = setInterval(function() {
 
-                //Update Time Left
+                // Update Time Left
                 timeLeft--;
 
-                //Update Element
-                document.getElementById("timer").innerHTML = timeLeft;
+                // Update Timer
+                timer.innerHTML = timeLeft;
 
-                //Check If Time Is Up
+                // If Time Is Up
                 if (timeLeft === 0) {
 
+                    // Clear Interval
                     clearInterval(interval);
+
+                    // Hide question and answer divs
+                    testQuestion.setAttribute("class", "hide");
+                    clickOptions.setAttribute("class", "hide");
+                    timer.setAttribute("class", "hide");
 
                     //Function to Load Score Input
 
@@ -297,7 +315,7 @@
             newButton.setAttribute("class", "answer-buttons btn btn-primary");
 
             // append elem to corresponding div
-            document.getElementById("test-answers").appendChild(newButton);
+            clickOptions.appendChild(newButton);
 
             // text
             newButton.textContent = testAnswers[currentQuestion].testOptions[i];
@@ -305,9 +323,6 @@
         }
 
     }
-
-    // assigning dom element test answers to clickOptions variable
-    let clickOptions = document.getElementById("test-answers");
     
     // adding event listener to clickOptions
     clickOptions.addEventListener("click", function(event) {
@@ -329,7 +344,7 @@
                 //clear interval
                 clearInterval;
                 //load score input function
-
+                scoreInput();
 
             }
 
@@ -345,21 +360,30 @@
     });
 
     //Function to Load Score Input
+    function scoreInput() {
+
         //Clear Interval
+        clearInterval;
 
         // Input element
+        // let inputIntitials = document.getElementById("initials");
             //assign a class
+            // inputIntitials.setAttribute("class", );
             //append to DIV
+
         // Submit button
             //Assign class
             //Assign Text
             //Append to Div
-    
+
+    }
+        
     //Function to ScoreBoard 
         
 
     //Event listener for SUBMIT button
     let submitEvent = document.getElementById("submit");
+    submitEvent.onclick = ;
 
     // Declaring Init Quiz Function
     function initQuiz() {
@@ -370,20 +394,15 @@
             //If null 
                 //Score array is []
 
-        // Hide Start Screen
+        // Start Screen
         let startScreen = document.getElementById("test-control-container");
 
         // Setting Hide Attribute to Hide Start Screen
         startScreen.setAttribute("class", "hide");
 
-        // assigning dom elements to variables
-        let testQuestion = document.getElementById("test-question");
-        let testAnswerBox = document.getElementById("test-answers");
-        let timer = document.getElementById("timer");
-
         // Remove Attribute of Hide for Test Question and Test Answers and Timer Divs (Display)
         testQuestion.removeAttribute("class");
-        testAnswerBox.removeAttribute("class");
+        clickOptions.removeAttribute("class");
         timer.removeAttribute("class");
 
         // Execute the Timer, Populate Qs and As
