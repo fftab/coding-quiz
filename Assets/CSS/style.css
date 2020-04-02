@@ -62,19 +62,29 @@ body {
 
 }
 
-.answer-buttons {
+/* Styling Test Answers Div */
+#test-answers {
 
-    display: block;
+    /* Grid Display */
+    display: grid;
+    /* Creating Two Grid Columns of Auto Width */
+    grid-template-columns: repeat(2, auto);
+    /* Creating Gap for Spacing */
+    gap: 10px;
+    /* Creating a Top and Bottom Margin for Answer Grid */
+    margin: 20px;
 
 }
 
-.start-button {
+/* Setting a Hover Style */
+.answer-buttons:hover {
 
-
+    /* Border Color is Black upon Hover */
+    border-color: black;
 
 }
 
-
+/* Creating Class of Hide */
 .hide {
 
     /*  Hide Content */

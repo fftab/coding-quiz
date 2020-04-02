@@ -1,21 +1,18 @@
 // JavaScript for Quiz
 // Referenced Fridge Exercise from Week Five
-// Received Help from Ikemous for this assignment
+// Received Help from Ikemous and Tutor for this assignment
 
     // Declaring Interval
     let interval;
 
-    // Starting Timer at 180 Seconds or 3 Minutes 
-    let timeLeft = 180;
+    // Starting Timer at 120 Seconds or 2 Minutes 
+    let timeLeft = 120;
 
     // Variable that will act as index of Question Number
     let currentQuestion = 0;
 
     // Start Button
     let startButton = document.getElementById("start-test-button");
-
-    //  Dynamically Create Questions
-    // ========================================================================
 
     // Creating Initial Array of Test Questions
     let testQuestions = [
@@ -45,15 +42,15 @@
             //Question 1 Answer Options
             testOptions: [
 
-                "A  function functionName() { }", 
-                "B  functionName();", 
-                "C  function(functionName) { }", 
+                "A  function functionName(parameter) { (commands) }", 
+                "B  functionName(parameter);", 
+                "C  function(functionName) { (commands) }", 
                 "D  {(function)}"
 
             ],
 
             // Question 1 Answer
-            A: "A  function functionName() { }"
+            A: "A  function functionName(parameter) { (commands) }"
 
         },
 
@@ -86,14 +83,14 @@
             // Question 3 Answer Options
             testOptions: [
 
-                "A  function functionName();",
-                "B  functionName();",
-                "C  function() { }",
-                "D  function (functionName { })"
+                "A  function functionName(argument);",
+                "B  functionName(argument);",
+                "C  function(argument) { (commands) }",
+                "D  function (functionName { (commands) })"
             ],
 
             // Question 3 Answer
-            A: "B  functionName();"
+            A: "B  functionName(argument);"
 
         },
 
@@ -106,9 +103,9 @@
             // Question 4 Answer Options
             testOptions: [
 
-                "A  for (i = 0; i > breakCase.length; i--) { }",
-                "B  for () { i = 0; i < something.length; i++ }",
-                "C  for (i = 0; i < breakCase.length; i++) { }",
+                "A  for (i = 0; i > (break case value); i--) { }",
+                "B  for () { i = 0; (break case vlaue); i++ }",
+                "C  for (i = 0; i < (break case value); i++) { }",
                 "D  A and C"
             ],
 
@@ -126,14 +123,14 @@
             // Question 5 Answer Options
             testOptions: [
 
-                "A  if [ ] ( )",
-                "B  if ( ) { }",
-                "C  while ( ) { }",
-                "D  while [ ] ( )"
+                "A  if [ (scenario) ] ( (commands) )",
+                "B  if ( (scenario) ) { (commands) }",
+                "C  while ( (scenario) ) { (commands) }",
+                "D  while [ (scenario) ] ( (commands) )"
             ],
 
             // Question 5 Answer
-            A: "B  if ( ) { }"
+            A: "B  if ( (scenario) ) { (commands) }"
             
         },
 
@@ -170,6 +167,7 @@
                 "B  let arrayName { item: 1, 2, 3 }",
                 "C  array (arrayName) { }",
                 "D  All of these are wrong."
+
             ],
 
             // Question 7 Answer
@@ -228,70 +226,123 @@
 
                 "A  ===",
                 "B  =/=",
-                "C  !==",
+                "C  !",
                 "D  <="
             ],
 
             // Question 10 Answer
-            A: "C  !=="
+            A: "C  !"
             
         }
 
     ]
 
-    // Initializing the Timer
-
+    // Declaring function to Initialize the Timer
     function initTimer() {
         
         //Call Function for timer Interval
         interval = setInterval(function() {
 
-            //Update Time Left
-            timeLeft--;
+                //Update Time Left
+                timeLeft--;
 
-            //Update Element
-            document.getElementById("timer").innerHTML = timeLeft;
+                //Update Element
+                document.getElementById("timer").innerHTML = timeLeft;
 
-            //Check If Time Is Up
-            if (timeLeft === 0) {
+                //Check If Time Is Up
+                if (timeLeft === 0) {
 
-                clearInterval(interval);
+                    clearInterval(interval);
 
-                //Function to Load Score Input
+                    //Function to Load Score Input
+
+
+                }
+
+        }, 1000);
+        
+    }
+
+    // declaring the populateQuestion function   
+    function populateQuestion() {
+
+        //Clear the Question Question
+        document.getElementById("test-question").innerHTML = "";
+
+        // create a header element for question text
+        let questionHeader = document.createElement("h3");
+
+        // change question text according to testQuestions at index of currentQuestion
+        questionHeader.textContent = testQuestions[currentQuestion];
+
+        // append new question header to test question div dom element
+        document.getElementById("test-question").appendChild(questionHeader);
+
+    }
+
+
+    // Declaring Populate Buttons Function
+    function populateButtons() {
+
+        // Clear answer text before adding new text
+        document.getElementById("test-answers").innerHTML = "";
+
+        // for loop to create four answer buttons
+        for (i = 0;i < 4; i++) {
+
+            // create button elements for answers
+            let newButton = document.createElement("button");
+
+            // assign class to answer button elements for styling
+            newButton.setAttribute("class", "answer-buttons btn btn-primary");
+
+            // append elem to corresponding div
+            document.getElementById("test-answers").appendChild(newButton);
+
+            // text
+            newButton.textContent = testAnswers[currentQuestion].testOptions[i];
+
+        }
+
+    }
+
+    // assigning dom element test answers to clickOptions variable
+    let clickOptions = document.getElementById("test-answers");
+    
+    // adding event listener to clickOptions
+    clickOptions.addEventListener("click", function(event) {
+
+        //if clickOptions answer button clicked
+        if (event.target.matches("button")) {
+
+            // if answer is not correct
+            if (!testAnswers[currentQuestion].A == event.target.textContent) {
+
+                // Detract Ten Seconds from the Timer
+                timeLeft -= 10;
+
+            }
+
+            //else if currentQuestion index > length of test questions array
+            else if (currentQuestion > testQuestions.length) {
+
+                //clear interval
+                clearInterval;
+                //load score input function
 
 
             }
 
-        }, 1000
-        
-        );
-        
-    }
+            // increment current question
+            currentQuestion++;
 
-    // fucntion to initilalize program
-    
+            // populate next question and answers
+            populateQuestion();
+            populateButtons();
 
-        //DO LAST//
-        // Check Local Storage
-            //your scorelist = localStorage(USE JSON.parse)
-            //If null 
-                //Score array is []
+        }
 
-        // Create Your main header
-            //Header Text
-            //Append To test questions
-
-        // Create Start button
-            //Give Class
-            //Give Text
-            //Append test answers
-
-
-    //Event listener For your START button
-
-        //Call populate question
-        //Call populate Buttons
-        //Call Init Timer
+    });
 
     //Function to Load Score Input
         //Clear Interval
@@ -310,104 +361,44 @@
     //Event listener for SUBMIT button
     let submitEvent = document.getElementById("submit");
 
+    // Declaring Init Quiz Function
     function initQuiz() {
+
+        //DO LAST//
+        // Check Local Storage
+            //your scorelist = localStorage(USE JSON.parse)
+            //If null 
+                //Score array is []
 
         // Hide Start Screen
         let startScreen = document.getElementById("test-control-container");
 
-        // Setting Attribute to Start Screen
+        // Setting Hide Attribute to Hide Start Screen
         startScreen.setAttribute("class", "hide");
 
-        // Remove Attribute of Hide for Test Question
+        // assigning dom elements to variables
         let testQuestion = document.getElementById("test-question");
+        let testAnswerBox = document.getElementById("test-answers");
+        let timer = document.getElementById("timer");
 
+        // Remove Attribute of Hide for Test Question and Test Answers and Timer Divs (Display)
         testQuestion.removeAttribute("class");
+        testAnswerBox.removeAttribute("class");
+        timer.removeAttribute("class");
 
-        // Execute the Timer, Populate Q
+        // Execute the Timer, Populate Qs and As
         initTimer();
         populateQuestion();
-        
-        // Add an Event Listener for Start Quiz Button
-        
+        populateButtons();
 
     }
 
+    // Adding Event Listener for Start Button to Perform Init Quiz
     startButton.onclick = initQuiz;
 
-    function populateQuestion() {
 
-        //Clear the Question Question
-        document.getElementById("test-question").innerHTML = "";
-
-        let questionHeader = document.createElement("h3");
-
-        questionHeader.textContent = testQuestions[currentQuestion];
-
-        document.getElementById("test-question").appendChild(questionHeader);
-
-    }
-
-    
-
-    function populateButtons() {
-
-        document.getElementById("test-answers").innerHTML = "";
-
-        for (i = 0;i < 4; i++) {
-
-            // create button elem
-            let newButton = document.createElement("button");
-
-            // assign class to elem
-            newButton.setAttribute("class", "answer-buttons");
-
-            // append elem to corresponding div
-            document.getElementById("test-answers").appendChild(newButton);
-
-            // text
-            newButton.textContent = testAnswers[currentQuestion].testOptions[i];
-
-        }
-
-    }
-
-    
-
-    let clickOptions = document.getElementById("test-answers");
-    
-    clickOptions.addEventListener("click", function(event) {
-
-        //if click
-        if (event.target.matches("button")) {
-
-            // Test
-            // console.log(1);
-
-            // if answer is not correct
-            if (!testAnswers[currentQuestion].A == event.target.textContent) {
-
-                // Detract Time from the Timer
-
-                timeLeft--;
-
-            }
-            //else if questions > length of questions
-                //clear interval
-                //load score input function
-
-            // increase question increment
-            currentQuestion++;
-
-            // populate next question
-            populateQuestion();
-            populateButtons();
-
-
-        }
-
-    });
-
-    // IGNORE
+    // IGNORE - REFERENCE - IGNORE
+    // ===============================================================
 
     // // Creating a for-loop to iterate through the testQuestions
     // for (let i = 0; i < testQuestions.length; i++) {
@@ -443,3 +434,21 @@
     // });
 
     // Dynamically Create Answer Button Text
+
+    // Test
+    // console.log(1);
+
+    //DO LAST//
+        // Check Local Storage
+            //your scorelist = localStorage(USE JSON.parse)
+            //If null 
+                //Score array is []
+
+        // Create Your main header
+            //Header Text
+            //Append To test questions
+
+        // Create Start button
+            //Give Class
+            //Give Text
+            //Append test answers
