@@ -380,13 +380,16 @@
             //Append to Div
 
     }
+
+    // classes and ids for scoreboard:
+    // class="hide" id="end-screen" id="final-score" id="initials" id="high-scores"
         
     //Function to ScoreBoard 
         
 
     //Event listener for SUBMIT button
-    let submitEvent = document.getElementById("submit");
-    submitEvent.onclick = ;
+    // let submitEvent = document.getElementById("submit");
+    // submitEvent.onclick = ;
 
     // Declaring Init Quiz Function
     function initQuiz() {
@@ -394,6 +397,8 @@
         //DO LAST//
         // Check Local Storage
             //your scorelist = localStorage(USE JSON.parse)
+            // scoreList = localStorage.JSON.parse("#high-scores");
+
             //If null 
                 //Score array is []
 
